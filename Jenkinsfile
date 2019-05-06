@@ -1,5 +1,5 @@
 // Sample Jenkinsfile
-node('daintvm1') {
+node('scs_daintvm1') {
     stage('Info') {
         println 'Hello from Jenkins'
         sh '''#/bin/bash -l
