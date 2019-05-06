@@ -2,6 +2,7 @@
 node('scs_daintvm1') {
     stage('Info') {
         checkout scm
+        echo sh(returnStdout: true, script: 'env')
         println 'Hello from Jenkins'
         println 'ls'
         sh '''#/bin/bash -l
