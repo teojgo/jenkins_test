@@ -3,7 +3,8 @@ node('scs_daintvm1') {
     stage('Info') {
         checkout scm
         echo sh(returnStdout: true, script: 'env')
-        println 'Hello from Jenkins'
+        println "Body: "
+        println pullRequest.body
         println 'ls'
         sh '''#/bin/bash -l
               sbatch --wait sbatch_test.sh
