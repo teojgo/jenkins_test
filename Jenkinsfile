@@ -1,6 +1,7 @@
 // Sample Jenkinsfile
 node('scs_daintvm1') {
     stage('Info') {
+        checkout scm
         println 'Hello from Jenkins'
         println 'ls'
         sh '''#/bin/bash -l
