@@ -1,8 +1,9 @@
 // Sample Jenkinsfile
-node('master') {
-    stage('Initialization') {
+node('daintvm1') {
+    stage('Info') {
         println 'Hello from Jenkins'
-        sh 'hostname'
-        sh 'env'
+        sh '''#/bin/bash -l
+              sbatch --wait sbatch_test.sh
+              cat test_output.out'''
     }
 }
