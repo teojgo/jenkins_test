@@ -4,8 +4,8 @@ pipeline {
   agent any
   stages {
     stage('Serial Stage') {
+      agent {label 'node1'}
       steps {
-        agent {label 'node1'}
         pwd
       }
     }
