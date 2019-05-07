@@ -1,23 +1,13 @@
 #!/usr/bin/env groovy
 
-node('master') {
+pipeline {
+  agent any
+  stages {
     stage('Serial Stage') {
-        node('node1') {
-            println 'Hello from node1'
-        }
-        node('node2') {
-            println 'Hello from node2'
-        }
+      steps {
+        agent {label 'node1'}
+        pwd
+      }
     }
-    stage('Custom Dir Stage') {
-        node('node1') {
-            dir('custom_dir') {
-                checkout scm
-                sh '''gcc -o hello_jenkins hello_jenkins.c
-                      ./hello_jenkins > jenkins_output.dat
-                      grep Jenkins jenkins_output.dat'''
-            }
-        }
-    }
-
+  }
 }
