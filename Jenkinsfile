@@ -6,7 +6,7 @@ pipeline {
     stage('Serial Stage') {
       agent {label 'node1'}
       steps {
-        pwd
+        sh 'pwd'
       }
     }
   }
