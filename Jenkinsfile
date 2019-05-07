@@ -1,10 +1,7 @@
 // Sample Jenkinsfile
-node('node1') {
+node('master') {
     stage('Initialization') {
-        checkout scm
-        echo sh(returnStdout: true, script: 'env')
+        node('node1') {
+            println 'Hello from node1'
     }
-    
-    
-    
 }
