@@ -4,4 +4,5 @@ node('node1') {
         checkout scm
         echo sh(returnStdout: true, script: 'env')
     }
+    
 }
