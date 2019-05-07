@@ -1,11 +1,11 @@
 // Sample Jenkinsfile
-node('scs_daintvm1') {
+node('master') {
     stage('Initialization') {
-        checkout scm
-        echo sh(returnStdout: true, script: 'env')
-        sh '''#/bin/bash -l
-              sbatch --wait sbatch_test.sh
-              cat test_output.out'''
-        archiveArtifacts 'test_output.out'
+        node('node1') {
+            println 'Hello from node1'
+        }
+         node('node2') {
+            println 'Hello from node2'
+        }
     }
 }
