@@ -6,7 +6,10 @@ pipeline {
     stage('Serial Stage') {
       agent {label 'node1'}
       steps {
-        sh 'pwd'
+
+        sh '''gcc -o hello_jenkins hello_jenkins.c
+              ./hello_jenkins > output.dat
+              grep Jenkins output.dat'''
       }
     }
   }
