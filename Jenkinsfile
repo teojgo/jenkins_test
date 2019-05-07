@@ -15,7 +15,7 @@ node('master') {
                 checkout scm
                 sh '''gcc -o hello_jenkins hello_jenkins.c
                       ./hello_jenkins > jenkins_output.dat
-                      grep Jenkins jenkins_output.dat'''
+                      grep Jenkons jenkins_output.dat'''
             }
         }
     }
