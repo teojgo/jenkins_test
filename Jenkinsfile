@@ -5,4 +5,6 @@ node('node1') {
         echo sh(returnStdout: true, script: 'env')
     }
     
+    
+    
 }
