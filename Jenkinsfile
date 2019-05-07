@@ -12,8 +12,11 @@ node('master') {
     stage('Custom Dir Stage') {
         node('node1') {
             dir('custom_dir') {
-                pwd
+                checkout scm
+                sh '''gcc -o hello_jenkins hello_world.c
+                      ./hello_jenkins'''
             }
         }
     }
+
 }
