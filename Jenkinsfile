@@ -1,21 +1,15 @@
 #!/usr/bin/env groovy
 
 node('master') {
-
-    stage('Serial Stage') {
+    stage('Build') {
         node('node1') {
-            println 'Hello from node1'
-        }
-        node('node2') {
-            println 'Hello from node2'
+            checkout scm
+            sh 'make'
         }
     }
-
-    stage('Custom Dir Stage') {
+    stage('Run') {
         node('node1') {
-            dir('custom_dir') {
-                pwd
-            }
-        }
+            sh '''./hello_jenkins > output.txt
+                  grep Jenkins output.txt'''
     }
 }
