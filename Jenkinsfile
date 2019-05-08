@@ -11,5 +11,6 @@ node('master') {
         node('node1') {
             sh '''./hello_jenkins > output.txt
                   grep Jenkins output.txt'''
+        }
     }
 }
