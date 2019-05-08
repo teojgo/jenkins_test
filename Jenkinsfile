@@ -5,15 +5,16 @@ node('master') {
         parallel(
             'build1': {
                  node('node1') {
-                 checkout scm
-                 sh 'make'
+                     checkout scm
+                     sh 'make'
+                 }
             },
             'build2': {
                  node('node2') {
-                 checkout scm
-                 sh 'make'
-            },
-
+                     checkout scm
+                     sh 'make'
+                 }
+            }
         )
     }
     stage('Run') {
