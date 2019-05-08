@@ -2,7 +2,7 @@ pipeline {
     agent any
     stages {
         stage('Build') {
-            parallel(
+            parallel {
                 stage('build1') {
                     agent {label 'node1'}
                     steps {
@@ -15,11 +15,11 @@ pipeline {
                         sh 'make'
                     }
                 }
-            )
+            }
         }
 
         stage('Run') {
-            parallel(
+            parallel {
                 stage('run1') {
                     agent {label 'node1'}
                     steps {
@@ -34,7 +34,7 @@ pipeline {
                               grep Jenkins output.txt'''
                     }
                 }
-            )
+            }
         }
     }
 }
