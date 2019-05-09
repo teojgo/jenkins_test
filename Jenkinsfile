@@ -10,7 +10,8 @@ node('master') {
     stage('Run') {
         node('node1') {
             sh'env'
-            println pullRequest.body
+            println "Body: ${pullRequest.body}"
+            println "Title: ${pullRequest.title}"
             sh '''./hello_jenkins > output.txt
                   grep Jenkins output.txt'''
         }
