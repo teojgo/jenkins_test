@@ -9,6 +9,7 @@ node('master') {
     }
     stage('Run') {
         node('node1') {
+            sh'env'
             sh '''./hello_jenkins > output.txt
                   grep Jenkins output.txt'''
         }
